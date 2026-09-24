@@ -95,6 +95,15 @@ section { margin-bottom: 56px; }
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .about .feature p { font-size: 15px; }
 
+.shot { display: block; position: relative; margin: -24px -24px 20px; border-bottom: 1px solid var(--line); background: var(--tag); border-radius: 14px 14px 0 0; overflow: hidden; aspect-ratio: 16 / 9; }
+.shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.shot.dark { background: #0b0d12; }
+.shot.contain img { object-fit: contain; object-position: center; }
+.shot .phone { position: absolute; right: 4%; bottom: -18%; width: 19%; height: auto; border-radius: 14px; border: 3px solid #1b1f2a; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+.shot .cap { position: absolute; left: 12px; bottom: 12px; font: 500 11px/1 "JetBrains Mono", ui-monospace, monospace; background: rgba(15,17,21,.78); color: #e8eaee; padding: 6px 8px; border-radius: 6px; }
+.grid .shot { aspect-ratio: 16 / 10; }
+@media (max-width: 720px) { .shot { margin: -20px -20px 16px; } }
+
 footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--faint); font-size: 14px; }
 
 @media (max-width: 720px) {
@@ -129,6 +138,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
   <h2>Featured</h2>
 
   <article class="feature">
+    <a class="shot " href="demos/daily-briefing.html"><img src="img/briefing.png" alt="A daily briefing page with today's due work, calendar and campus events" loading="lazy"><span class="cap">Sample page · test data</span></a>
     <div class="feature-head">
       <h3>Daily Briefing</h3>
       <span class="meta">Python · 2026 · runs every morning</span>
@@ -142,11 +152,12 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
     </ul>
     <div class="row">
       <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Google APIs</span><span class="tag">systemd</span><span class="tag">LLM</span></div>
-      <div class="acts"><a href="https://github.com/mshayev92/daily-briefing-demo">Code →</a></div>
+      <div class="acts"><a href="demos/daily-briefing.html">Sample page →</a><a href="https://github.com/mshayev92/daily-briefing-demo">Code →</a></div>
     </div>
   </article>
 
   <article class="feature">
+    <a class="shot dark" href="img/canvas.png"><img src="img/canvas.png" alt="Terminal output of the canvas CLI listing work due across four courses" loading="lazy"><span class="cap">canvas CLI · demo data</span></a>
     <div class="feature-head">
       <h3>Canvas Scraper</h3>
       <span class="meta">Python · Playwright · 2026</span>
@@ -165,6 +176,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
   </article>
 
   <article class="feature">
+    <a class="shot " href="img/njwg-overview-desktop.png"><img src="img/njwg-overview-desktop.png" alt="The encampment app's overview page on desktop, with a phone showing the schedule" loading="lazy"><img class="phone" src="img/njwg-schedule-phone.png" alt="" loading="lazy"><span class="cap">Real app · fake cadets</span></a>
     <div class="feature-head">
       <h3>NJWG Encampment App</h3>
       <span class="meta">JavaScript · PWA · Cloudflare Workers · 2026</span>
@@ -183,6 +195,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
   </article>
 
   <article class="feature">
+    <a class="shot dark" href="https://mshayev92.github.io/pension-allocator-demo/"><img src="img/pension.png" alt="The allocator database showing firm cards with relationship signals" loading="lazy"><span class="cap">Live demo · synthetic data</span></a>
     <div class="feature-head">
       <h3>Pension Allocator Intelligence</h3>
       <span class="meta">Internship · Nine Advanced Technologies · 2026</span>
@@ -227,6 +240,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
   <h2>Apps</h2>
   <div class="grid">
     <article class="feature">
+    <a class="shot " href="https://mshayev92.github.io/spaatz-aerospace/"><img src="img/aerospace.png" alt="A flashcard with mastery progress bar and review buttons" loading="lazy"><span class="cap">Live app</span></a>
       <div class="feature-head"><h3>Aerospace Study Deck</h3><span class="meta">PWA · no dependencies</span></div>
       <p>An offline flashcard app for Civil Air Patrol's "Journey of Flight" aerospace material. It has mastery tracking, ranked search across the whole deck, full keyboard control, and progress that syncs across devices through a JSON file in the repo.</p>
       <div class="row">
@@ -235,6 +249,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
       </div>
     </article>
     <article class="feature">
+    <a class="shot dark contain" href="https://mshayev92.github.io/training-log/"><img src="img/training.png" alt="The training log's week view on a phone" loading="lazy"><span class="cap">Live app</span></a>
       <div class="feature-head"><h3>Training Log</h3><span class="meta">Vite · PWA</span></div>
       <p>An offline-first strength-training log for a 10-week program. You log sets in a gym with no signal, the app installs to the home screen, and updates wait for a prompt so they never reload mid-set. Data stays on the device, with JSON export and restore.</p>
       <div class="row">
