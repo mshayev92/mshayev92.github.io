@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Shayevich</title>
+<meta name="description" content="Michael Shayevich — UMD computer science student building automation, data pipelines and offline-first web apps.">
+<meta property="og:title" content="Michael Shayevich — Projects">
+<meta property="og:description" content="Automation, data pipelines and offline-first web apps.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f3a5f'/><text x='16' y='22' font-family='Georgia,serif' font-size='17' fill='white' text-anchor='middle'>MS</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbfbf9;
+  --surface: #ffffff;
+  --text: #16181d;
+  --muted: #5b616e;
+  --faint: #8a909c;
+  --line: #e6e5e0;
+  --accent: #1f5fbf;
+  --accent-soft: #e8f0fc;
+  --tag: #f1f0ec;
+  --shadow: 0 1px 2px rgba(20,24,33,.04), 0 4px 16px rgba(20,24,33,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --surface: #171a20;
+    --text: #e8eaee;
+    --muted: #a3a9b5;
+    --faint: #737a87;
+    --line: #262a33;
+    --accent: #7fb0ff;
+    --accent-soft: #1a2638;
+    --tag: #20242c;
+    --shadow: none;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+header { padding: 72px 0 40px; }
+.eyebrow { font: 500 13px/1 "JetBrains Mono", ui-monospace, monospace; color: var(--faint); letter-spacing: .02em; }
+h1 { font-size: clamp(34px, 6vw, 46px); line-height: 1.1; margin: 14px 0 16px; letter-spacing: -.02em; }
+.lede { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--text); font-size: 14px; font-weight: 500;
+}
+.btn:hover { border-color: var(--accent); text-decoration: none; }
+.btn svg { width: 16px; height: 16px; }
+
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 8px 0 56px; }
+.fact { background: var(--surface); padding: 16px 18px; }
+.fact b { display: block; font-size: 22px; letter-spacing: -.01em; }
+.fact span { font-size: 13px; color: var(--muted); }
+
+h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin: 0 0 16px; }
+section { margin-bottom: 56px; }
+
+.feature {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow);
+}
+.feature-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.feature h3 { font-size: 20px; margin: 0; letter-spacing: -.01em; }
+.meta { font: 12px/1.4 "JetBrains Mono", ui-monospace, monospace; color: var(--faint); }
+.feature p { margin: 10px 0 0; color: var(--muted); }
+.feature ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+.feature li { margin: 4px 0; }
+.feature li b { color: var(--text); font-weight: 600; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font: 12px/1 "JetBrains Mono", ui-monospace, monospace; background: var(--tag); color: var(--muted); padding: 5px 8px; border-radius: 6px; }
+.acts { display: flex; gap: 14px; font-size: 14px; font-weight: 500; }
+.private { font-size: 13px; color: var(--faint); }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid .feature { margin: 0; display: flex; flex-direction: column; }
+.grid .feature .row { margin-top: auto; padding-top: 16px; }
+
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.about .feature p { font-size: 15px; }
+
+footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--faint); font-size: 14px; }
+
+@media (max-width: 720px) {
+  header { padding: 48px 0 28px; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .grid, .about { grid-template-columns: 1fr; }
+  .feature { padding: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">B.S. Computer Science · University of Maryland, College Park · 2030</div>
+  <h1>Michael Shayevich</h1>
+  <p class="lede">I build systems that run without me watching them: web scrapers, data pipelines, self-healing servers, and offline-first apps that people use in the field.</p>
+  <div class="links">
+    <a class="btn" href="https://github.com/mshayev92"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+    <a class="btn" href="mailto:michaelshayevich92@gmail.com"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M2 4l6 5 6-5"/></svg>Email</a>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="fact"><b>8</b><span>projects shown here</span></div>
+  <div class="fact"><b>~70k</b><span>lines of code across them</span></div>
+  <div class="fact"><b>127+</b><span>client sites shipped since 2022</span></div>
+  <div class="fact"><b>24/7</b><span>home server running my automations</span></div>
+</div>
+
+<section>
+  <h2>Featured</h2>
+
+  <article class="feature">
+    <div class="feature-head">
+      <h3>Daily Briefing</h3>
+      <span class="meta">Python · 2026 · runs every morning</span>
+    </div>
+    <p>A personal pipeline that reads my coursework, email, calendar and campus events each morning and turns them into one prioritized page I read on my phone.</p>
+    <ul>
+      <li>A <b>systemd timer</b> at 6:30 AM runs the whole chain: refresh Canvas, collect from Gmail, Drive and Calendar, rank items, render the page, back it up to Drive.</li>
+      <li>A <b>"What changed"</b> section built from the scraper's change log, so I see new grades and deadlines rather than the same list every day.</li>
+      <li>Every LLM call is logged with its cost and runs under a <b>per-run budget</b>. Logging showed that extended thinking made up ~95% of the spend, so I turned it off by default.</li>
+      <li>FastAPI serves the page over Tailscale. State lives in SQLite. 14 test files check the code against the written spec.</li>
+    </ul>
+    <div class="row">
+      <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Google APIs</span><span class="tag">systemd</span><span class="tag">LLM</span></div>
+      <div class="acts"><a href="https://github.com/mshayev92/daily-briefing">Code →</a></div>
+    </div>
+  </article>
+
+  <article class="feature">
+    <div class="feature-head">
+      <h3>Canvas Scraper</h3>
+      <span class="meta">Python · Playwright · 2026</span>
+    </div>
+    <p>A read-only scraper for UMD's Canvas that works without an official API token. Every professor organizes Canvas differently, so it discovers each course's structure rather than assuming one.</p>
+    <ul>
+      <li>Logs in through <b>UMD SSO and Duo push</b> with encrypted stored credentials, then keeps a headed browser session alive on a server with no display (Xvfb).</li>
+      <li>An <b>incremental-sync cache</b> stores snapshots of every assignment, page and announcement, so downstream tools can ask "what's new since yesterday?"</li>
+      <li>A <code>canvas</code> CLI answers cross-course questions, plus <b>trigger-driven automations</b> ("when a new chapter appears, summarize it").</li>
+      <li>Documents what the instance actually exposes, endpoint by endpoint, and what it does not reliably expose.</li>
+    </ul>
+    <div class="row">
+      <div class="tags"><span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">SQLite</span><span class="tag">CLI</span><span class="tag">pytest</span></div>
+      <div class="acts"><a href="https://github.com/mshayev92/canvas-scraper">Code →</a></div>
+    </div>
+  </article>
+
+  <article class="feature">
+    <div class="feature-head">
+      <h3>NJWG Encampment App</h3>
+      <span class="meta">JavaScript · PWA · Cloudflare Workers · 2026</span>
+    </div>
+    <p>An installable staff app for the Civil Air Patrol New Jersey Wing summer encampment: schedule, roster, inspections, observations, announcements and push notifications, backed by a Google Sheet that staff already knew how to edit.</p>
+    <ul>
+      <li>The site is public, so no page is a security boundary. A <b>Cloudflare Worker</b> enforces everything server-side.</li>
+      <li><b>Two layers of signed tokens</b>: a passphrase unlocks a device (short-lived on shared desk devices), then a per-position session decides which pages load.</li>
+      <li>Rate limiting, a read cache in front of the Sheets API, Web Push, and an offline fallback for spots with bad signal.</li>
+      <li>142 commits over the summer, including a full backend migration from Google Apps Script to the Worker.</li>
+    </ul>
+    <div class="row">
+      <div class="tags"><span class="tag">JavaScript</span><span class="tag">Cloudflare Workers</span><span class="tag">Sheets API</span><span class="tag">Service Worker</span><span class="tag">Web Push</span></div>
+      <div class="acts"><a href="https://github.com/mshayev92/njwg-encampment">Code →</a></div>
+    </div>
+  </article>
+
+  <article class="feature">
+    <div class="feature-head">
+      <h3>9AT Intelligence Platform</h3>
+      <span class="meta">Internship · Nine Advanced Technologies · 2026</span>
+    </div>
+    <p>A business-development database built from public DOL Form 5500 pension filings. It shows which plans already work with the firm's partners and which are worth contacting.</p>
+    <ul>
+      <li>Structures <b>9,021 plan allocators</b> and <b>1,718 leads</b> from Schedule C and Schedule D filings into one queryable schema.</li>
+      <li>Matches adviser and fund names across filings with <b>tiered fuzzy matching</b>, and ranks 318 firms for further enrichment.</li>
+      <li>Ships as a single static page over a JSON dataset: search, filters and an outreach pipeline, with no server to maintain.</li>
+    </ul>
+    <div class="row">
+      <div class="tags"><span class="tag">Data engineering</span><span class="tag">Fuzzy matching</span><span class="tag">JavaScript</span><span class="tag">SEC / DOL data</span></div>
+      <div class="acts"><a href="https://mshayev92.github.io/9AT-Intelligence/">Live →</a><a href="https://github.com/mshayev92/9AT-Intelligence">Code →</a></div>
+    </div>
+  </article>
+</section>
+
+<section>
+  <h2>Infrastructure</h2>
+  <div class="grid">
+    <article class="feature">
+      <div class="feature-head"><h3>syscheck + syscare</h3><span class="meta">Python · Linux</span></div>
+      <p>Self-healing upkeep for my home server. <b>syscheck</b> finds every service, container, port and timer at run time and reports health, security and drift. <b>syscare</b> runs every 15 minutes as root and applies fixed, rule-based fixes: no AI, rate-limited, backed up, and checked by a second scan. Anything risky goes to a Telegram "needs you" list instead.</p>
+      <div class="row">
+        <div class="tags"><span class="tag">Python</span><span class="tag">systemd</span><span class="tag">Docker</span><span class="tag">63 tests</span></div>
+        <span class="private">Private · on request</span>
+      </div>
+    </article>
+    <article class="feature">
+      <div class="feature-head"><h3>Mac Computer Bridge</h3><span class="meta">Python · Swift · MCP</span></div>
+      <p>An MCP server that lets AI agents on my Linux server operate my Mac over Tailscale. It has 30 tools for windows, clicks, typing, menus and screenshots. It prefers the macOS Accessibility tree to screenshots, so actions are exact, cheap, and work on background windows without stealing focus.</p>
+      <div class="row">
+        <div class="tags"><span class="tag">MCP</span><span class="tag">macOS Accessibility</span><span class="tag">Swift</span><span class="tag">Tailscale</span></div>
+        <span class="private">Private · on request</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Apps</h2>
+  <div class="grid">
+    <article class="feature">
+      <div class="feature-head"><h3>Aerospace Study Deck</h3><span class="meta">PWA · no dependencies</span></div>
+      <p>An offline flashcard app for Civil Air Patrol's "Journey of Flight" aerospace material. It has mastery tracking, ranked search across the whole deck, full keyboard control, and progress that syncs across devices through a JSON file in the repo.</p>
+      <div class="row">
+        <div class="tags"><span class="tag">HTML/CSS/JS</span><span class="tag">Service Worker</span></div>
+        <div class="acts"><a href="https://mshayev92.github.io/spaatz-aerospace/">Live →</a><a href="https://github.com/mshayev92/spaatz-aerospace">Code →</a></div>
+      </div>
+    </article>
+    <article class="feature">
+      <div class="feature-head"><h3>Training Log</h3><span class="meta">Vite · PWA</span></div>
+      <p>An offline-first strength-training log for a 10-week program. You log sets in a gym with no signal, the app installs to the home screen, and updates wait for a prompt so they never reload mid-set. Data stays on the device, with JSON export and restore.</p>
+      <div class="row">
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Vite</span><span class="tag">Workbox</span></div>
+        <div class="acts"><a href="https://mshayev92.github.io/training-log/">Live →</a><a href="https://github.com/mshayev92/training-log">Code →</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Beyond code</h2>
+  <div class="about">
+    <article class="feature">
+      <h3>Freelance web design</h3>
+      <p>Since 2022 I have built sites for clients on Fiverr: 127+ projects in 9 countries, rated 4.8/5, Level 2 seller and Wix Legend Partner. That work taught me to handle scope, deadlines and clients who don't speak in specs.</p>
+    </article>
+    <article class="feature">
+      <h3>Civil Air Patrol</h3>
+      <p>Cadet Lieutenant Colonel and recipient of the Gen. Ira C. Eaker Award. I build tools for the programs I lead in, such as the encampment app and the study deck above, because I've seen where the paper process breaks down.</p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div>Michael Shayevich · College Park, MD · <a href="https://github.com/mshayev92">github.com/mshayev92</a></div>
+</footer>
+
+</div>
+</body>
+</html>
