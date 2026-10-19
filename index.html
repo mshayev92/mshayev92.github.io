@@ -91,6 +91,7 @@ section { margin-bottom: 56px; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .grid .feature { margin: 0; display: flex; flex-direction: column; }
 .grid .feature .row { margin-top: auto; padding-top: 16px; }
+.grid .feature:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .about .feature p { font-size: 15px; }
@@ -120,7 +121,7 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
 <header>
   <div class="eyebrow">B.S. Computer Science · University of Maryland, College Park · 2030</div>
   <h1>Michael Shayevich</h1>
-  <p class="lede">I build systems that run without me watching them: web scrapers, data pipelines, self-healing servers, and offline-first apps that people use in the field.</p>
+  <p class="lede">I build systems that run without me watching them: web scrapers, data pipelines, self-healing servers, and offline-first apps for iPhone, Apple Watch and the web.</p>
   <div class="links">
     <a class="btn" href="https://github.com/mshayev92"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
     <a class="btn" href="mailto:michaelshayevich92@gmail.com"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5"/><path d="M2 4l6 5 6-5"/></svg>Email</a>
@@ -128,8 +129,8 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
 </header>
 
 <div class="facts">
-  <div class="fact"><b>8</b><span>projects shown here</span></div>
-  <div class="fact"><b>~70k</b><span>lines of code across them</span></div>
+  <div class="fact"><b>10</b><span>projects shown here</span></div>
+  <div class="fact"><b>~120k</b><span>lines of code across them</span></div>
   <div class="fact"><b>127+</b><span>client sites shipped since 2022</span></div>
   <div class="fact"><b>24/7</b><span>home server running my automations</span></div>
 </div>
@@ -153,6 +154,25 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
     <div class="row">
       <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Google APIs</span><span class="tag">systemd</span><span class="tag">LLM</span></div>
       <div class="acts"><a href="demos/daily-briefing.html">Sample page →</a><a href="https://github.com/mshayev92/daily-briefing-demo">Code →</a></div>
+    </div>
+  </article>
+
+  <article class="feature">
+    <a class="shot dark" href="img/setpoint-overview-desktop.png"><img src="img/setpoint-overview-desktop.png" alt="Setpoint's web dashboard overview, with a phone showing a workout in progress" loading="lazy"><img class="phone" src="img/setpoint-workout-phone.png" alt="" loading="lazy"><span class="cap">Demo data</span></a>
+    <div class="feature-head">
+      <h3>Setpoint</h3>
+      <span class="meta">Swift · FastAPI · 2026 · I train with it</span>
+    </div>
+    <p>A strength-training app I built for myself: an iPhone app, an Apple Watch app, a native Mac app and a web dashboard, all synced through a server I host.</p>
+    <ul>
+      <li><b>Offline first.</b> Each device keeps a local SQLite replica and an outbox of changes, so logging works in a gym with no signal and syncs when it reconnects.</li>
+      <li>The <b>Apple Watch</b> app drives the workout from the wrist and records live heart rate through HealthKit, down to the peak and recovery of each set.</li>
+      <li>A shared Swift <b>progression engine</b> plans each set's weight and reps from past sessions, checked against fixed test vectors.</li>
+      <li>The FastAPI server is reachable only over Tailscale, backs up hourly and nightly to Drive, and runs a nightly restore drill. 141 server tests.</li>
+    </ul>
+    <div class="row">
+      <div class="tags"><span class="tag">SwiftUI</span><span class="tag">watchOS</span><span class="tag">HealthKit</span><span class="tag">FastAPI</span><span class="tag">SQLite</span></div>
+      <span class="private">Private · on request</span>
     </div>
   </article>
 
@@ -230,6 +250,14 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
       <p>An MCP server that lets AI agents on my Linux server operate my Mac over Tailscale. It has 30 tools for windows, clicks, typing, menus and screenshots. It prefers the macOS Accessibility tree to screenshots, so actions are exact, cheap, and work on background windows without stealing focus.</p>
       <div class="row">
         <div class="tags"><span class="tag">MCP</span><span class="tag">macOS Accessibility</span><span class="tag">Swift</span><span class="tag">Tailscale</span></div>
+        <span class="private">Private · on request</span>
+      </div>
+    </article>
+    <article class="feature">
+      <div class="feature-head"><h3>Remote Claude Quick Entry</h3><span class="meta">Swift · SSH · tmux</span></div>
+      <p>A Mac panel app and an iPhone app that drive the AI coding agents running on my server. Each chat runs in its own tmux pane, and the apps show replies, questions and progress as they arrive. They share one Swift core. The phone connects through a forced-command SSH gate that allows only a fixed list of actions, and it can search every past chat.</p>
+      <div class="row">
+        <div class="tags"><span class="tag">AppKit</span><span class="tag">SwiftUI</span><span class="tag">SSH</span><span class="tag">tmux</span></div>
         <span class="private">Private · on request</span>
       </div>
     </article>
