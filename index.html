@@ -149,7 +149,8 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
       <li>A <b>systemd timer</b> at 6:30 AM runs the whole chain: refresh Canvas, collect from Gmail, Drive and Calendar, rank items, render the page, back it up to Drive.</li>
       <li>A <b>"What changed"</b> section built from the scraper's change log, so I see new grades and deadlines rather than the same list every day.</li>
       <li>Every LLM call is logged with its cost and runs under a <b>per-run budget</b>. Logging showed that extended thinking made up ~95% of the spend, so I turned it off by default.</li>
-      <li>FastAPI serves the page over Tailscale. State lives in SQLite. 14 test files check the code against the written spec.</li>
+      <li>Tracks the internships and scholarships I apply to, flags vetted new leads, and pushes urgent items to my phone through a self-hosted ntfy server.</li>
+      <li>FastAPI serves the page over Tailscale. State lives in SQLite. 655 tests in the public snapshot check the code against the written spec.</li>
     </ul>
     <div class="row">
       <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">Google APIs</span><span class="tag">systemd</span><span class="tag">LLM</span></div>
@@ -241,13 +242,13 @@ footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--f
       <div class="feature-head"><h3>syscheck + syscare</h3><span class="meta">Python · Linux</span></div>
       <p>Self-healing upkeep for my home server. <b>syscheck</b> finds every service, container, port and timer at run time and reports health, security and drift. <b>syscare</b> runs every 15 minutes as root and applies fixed, rule-based fixes: no AI, rate-limited, backed up, and checked by a second scan. Anything risky goes to a Telegram "needs you" list instead.</p>
       <div class="row">
-        <div class="tags"><span class="tag">Python</span><span class="tag">systemd</span><span class="tag">Docker</span><span class="tag">63 tests</span></div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">systemd</span><span class="tag">Docker</span><span class="tag">169 tests</span></div>
         <span class="private">Private · on request</span>
       </div>
     </article>
     <article class="feature">
       <div class="feature-head"><h3>Mac Computer Bridge</h3><span class="meta">Python · Swift · MCP</span></div>
-      <p>An MCP server that lets AI agents on my Linux server operate my Mac over Tailscale. It has 30 tools for windows, clicks, typing, menus and screenshots. It prefers the macOS Accessibility tree to screenshots, so actions are exact, cheap, and work on background windows without stealing focus.</p>
+      <p>An MCP server that lets AI agents on my Linux server operate my Mac over Tailscale. It has 26 tools for windows, clicks, typing, menus and screenshots. It prefers the macOS Accessibility tree to screenshots, so actions are exact, cheap, and work on background windows without stealing focus.</p>
       <div class="row">
         <div class="tags"><span class="tag">MCP</span><span class="tag">macOS Accessibility</span><span class="tag">Swift</span><span class="tag">Tailscale</span></div>
         <span class="private">Private · on request</span>
